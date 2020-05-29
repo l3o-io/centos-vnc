@@ -4,6 +4,7 @@ set -eu
 USER_ID=${USER_ID:=10000}
 USER=${USER:="root"}
 VNCPASSWD=${VNCPASSWD:="pod.VNC"}
+VNCRESOLUTION=${VNCRESOLUTION:="1280x720"}
 
 # dynamically create user
 if [ "$USER" != "root" ]; then
@@ -18,6 +19,7 @@ systemctl unmask systemd-logind.service
 systemctl enable vncserver@:1
 mkdir -m 700 $HOME/.vnc
 echo "$VNCPASSWD" | vncpasswd -f > $HOME/.vnc/passwd
+echo "geometry=$VNCRESOLUTION" > $HOME/.vnc/config
 chmod 600 $HOME/.vnc/passwd
 chown -R $USER:root $HOME/.vnc/
 
