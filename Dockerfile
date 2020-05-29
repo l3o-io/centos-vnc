@@ -13,6 +13,7 @@ RUN dnf install -y epel-release && \
 
 COPY entrypoint.sh /
 COPY startxfce4.bash /usr/bin/
+COPY xfce4-screensaver.xml /usr/share/backgrounds/
 EXPOSE 5901/tcp
 
 ENTRYPOINT ["/entrypoint.sh"]
