@@ -1,5 +1,6 @@
 FROM quay.io/l3o/centos-8:systemd
 LABEL maintainer="Christian Felder"
+LABEL RUN="podman run --rm -P --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -d IMAGE"
 
 WORKDIR /root
 
