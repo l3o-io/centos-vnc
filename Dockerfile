@@ -1,4 +1,4 @@
-FROM docker.io/adevur/centos-8:systemd
+FROM quay.io/l3o/centos-8:systemd
 LABEL maintainer="Christian Felder"
 
 WORKDIR /root
