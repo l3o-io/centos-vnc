@@ -8,11 +8,12 @@ xset -dpms
 xset s noblank
 xset s off
 
-# ensure screensaver is switched off for this user
+# set wallpaper + ensure screensaver is switched off for this user
 if [ ! -d $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/ ]; then
   mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 fi
-cp -af /usr/share/backgrounds/xfce4-screensaver.xml  \
+cp -af /usr/share/backgrounds/xfce4-desktop.xml \
+  /usr/share/backgrounds/xfce4-screensaver.xml \
   $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 # start window manager

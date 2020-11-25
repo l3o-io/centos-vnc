@@ -15,12 +15,16 @@ RUN dnf install -y epel-release && \
 COPY entrypoint.sh /
 COPY startxfce4.bash /usr/bin/
 COPY xfce4-screensaver.xml /usr/share/backgrounds/
+COPY xfce4-desktop.xml /usr/share/backgrounds/
 EXPOSE 5901/tcp
+
+VOLUME ["/config"]
 
 ENV USER_ID=10000
 ENV USER="container"
 ENV VNCPASSWD="pod.VNC"
 ENV VNCRESOLUTION="1280x720"
+ENV BACKGROUND="/usr/share/backgrounds/images/default.png"
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/sbin/init"]

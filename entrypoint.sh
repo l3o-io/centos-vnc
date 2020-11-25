@@ -6,6 +6,10 @@ USER=${USER:="root"}
 VNCPASSWD=${VNCPASSWD:="pod.VNC"}
 VNCRESOLUTION=${VNCRESOLUTION:="1280x720"}
 
+if [ -z "$BACKGROUND" ] || [ ! -f "$BACKGROUND" ]; then
+  BACKGROUND="/usr/share/backgrounds/images/default.png"
+fi
+
 # dynamically create user
 if [ "$USER" != "root" ]; then
   HOME=/home/$USER
@@ -22,5 +26,8 @@ echo "$VNCPASSWD" | vncpasswd -f > $HOME/.vnc/passwd
 echo "geometry=$VNCRESOLUTION" > $HOME/.vnc/config
 chmod 600 $HOME/.vnc/passwd
 chown -R $USER:root $HOME/.vnc/
+
+sed -i 's|\(.*\){{ background }}\(.*\)|\1'"$BACKGROUND"'\2|g' \
+  /usr/share/backgrounds/xfce4-desktop.xml
 
 exec "$@"
