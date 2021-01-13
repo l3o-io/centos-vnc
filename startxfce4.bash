@@ -12,8 +12,8 @@ xset s off
 if [ ! -d $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/ ]; then
   mkdir -p $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 fi
-cp -af /usr/share/backgrounds/xfce4-desktop.xml \
-  /usr/share/backgrounds/xfce4-screensaver.xml \
+cp -af /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml \
+  /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-screensaver.xml \
   $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 # start window manager

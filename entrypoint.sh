@@ -28,6 +28,6 @@ chmod 600 $HOME/.vnc/passwd
 chown -R $USER:root $HOME/.vnc/
 
 sed -i 's|\(.*\){{ background }}\(.*\)|\1'"$BACKGROUND"'\2|g' \
-  /usr/share/backgrounds/xfce4-desktop.xml
+  /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
 exec "$@"
