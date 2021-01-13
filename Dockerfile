@@ -1,6 +1,6 @@
 FROM quay.io/l3o/centos-8:systemd
 LABEL maintainer="Christian Felder"
-LABEL RUN="podman run --rm -P --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -d IMAGE"
+LABEL RUN="podman run --rm --cap-drop=all --cap-add=chown --cap-add=setuid --cap-add=setgid --cap-add=setpcap --cap-add=audit_control --cap-add=dac_override --cap-add=fowner -P --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -d IMAGE"
 
 WORKDIR /root
 

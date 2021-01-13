@@ -36,6 +36,9 @@ In order to specify a custom background image a directory may be mounted to
 be provided using the ``BACKGROUND`` environment.
 
     $ podman run --rm -p 5901:5901 \
+                 --cap-drop=all --cap-add=chown --cap-add=setuid \
+                 --cap-add=setgid --cap-add=setpcap --cap-add=audit_control \
+                 --cap-add=dac_override --cap-add=fowner \
                  -v /tmp/bg:/config:ro -e BACKGROUND=/config/custom-bg.png \
                  --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -d \
                  quay.io/l3o/centos-xfce-vnc:latest
