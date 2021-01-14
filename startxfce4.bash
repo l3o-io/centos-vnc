@@ -16,5 +16,10 @@ cp -af /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml \
   /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-screensaver.xml \
   $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 
+# copy .desktop files
+if [ -d "$DESKTOP" ]; then
+  cp -a $DESKTOP/*.desktop $HOME/Desktop/ &2>/dev/null
+fi
+
 # start window manager
 [ -n "$STARTXFCE4" ] && exec "$STARTXFCE4"
