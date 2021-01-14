@@ -34,6 +34,7 @@ sed -i 's|\(.*\){{ background }}\(.*\)|\1'"$BACKGROUND"'\2|g' \
   /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
 if [ -d "$DESKTOP" ]; then
+  [ -d $HOME/Desktop] || mkdir $HOME/Desktop && chown $USER:root $HOME/Desktop
   cp -a $DESKTOP/*.desktop $HOME/Desktop/ &2>/dev/null
 fi
 
