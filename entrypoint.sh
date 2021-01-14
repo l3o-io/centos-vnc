@@ -33,4 +33,8 @@ chown -R $USER:root $HOME/.vnc/
 sed -i 's|\(.*\){{ background }}\(.*\)|\1'"$BACKGROUND"'\2|g' \
   /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
 
+if [ -d "$DESKTOP" ]; then
+  cp -a $DESKTOP/*.desktop $HOME/Desktop/ &2>/dev/null
+fi
+
 exec "$@"
