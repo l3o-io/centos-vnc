@@ -15,7 +15,8 @@ This is this source code repository for the headless centos xfce container
 * ``VNCPASSWD`` - password for vnc connection (default: pod.VNC)
 * ``VNCRESOLUTION`` - vnc screen resolution (default: 1280x720)
 * ``BACKGROUND`` - path to background image in the container, e.g.
-  ``/config/custom-bg.png``
+* ``DESKTOP`` - path to directory containing .desktop files in the container
+  (default: ``/config/desktop``)
 
 ## examples
 

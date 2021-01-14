@@ -27,6 +27,7 @@ ENV USER="container"
 ENV VNCPASSWD="pod.VNC"
 ENV VNCRESOLUTION="1280x720"
 ENV BACKGROUND="/usr/share/backgrounds/images/default.png"
+ENV DESKTOP="/config/desktop"
 ENV STARTXFCE4="startxfce4.bash"
 
 ENTRYPOINT ["/entrypoint.sh"]

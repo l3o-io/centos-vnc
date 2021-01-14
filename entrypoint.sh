@@ -5,6 +5,7 @@ USER_ID=${USER_ID:=10000}
 USER=${USER:="root"}
 VNCPASSWD=${VNCPASSWD:="pod.VNC"}
 VNCRESOLUTION=${VNCRESOLUTION:="1280x720"}
+DESKTOP=${DESKTOP:="/config/desktop"}
 STARTXFCE4=${STARTXFCE4:="startxfce4.bash"}
 
 if [ -z "$BACKGROUND" ] || [ ! -f "$BACKGROUND" ]; then
@@ -31,5 +32,9 @@ chown -R $USER:root $HOME/.vnc/
 
 sed -i 's|\(.*\){{ background }}\(.*\)|\1'"$BACKGROUND"'\2|g' \
   /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml
+
+if [ -d "$DESKTOP" ]; then
+  cp -a $DESKTOP/*.desktop $HOME/Desktop/ &2>/dev/null
+fi
 
 exec "$@"
