@@ -8,7 +8,8 @@ RUN dnf install -y epel-release && \
   dnf update -y && dnf install -y \
   tigervnc-server \
   && \
-  dnf group install -y xfce-desktop \
+  dnf group install -y xfce-desktop && \
+  dnf install -y xfce4-notifyd \
   && \
   dnf clean all -y
 
