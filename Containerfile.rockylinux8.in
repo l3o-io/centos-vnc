@@ -1,0 +1,3 @@
+FROM docker.io/rockylinux/rockylinux:8
+#include "Containerfile.init.in"
+#include "Containerfile.in"

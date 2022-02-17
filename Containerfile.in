@@ -1,17 +1,14 @@
-FROM quay.io/l3o/centos-8:systemd
 LABEL maintainer="Christian Felder"
 LABEL RUN="podman run --rm --cap-drop=all --cap-add=chown --cap-add=setuid --cap-add=setgid --cap-add=setpcap --cap-add=audit_control --cap-add=dac_override --cap-add=fowner -P --tmpfs /run -v /sys/fs/cgroup:/sys/fs/cgroup:ro -d IMAGE"
 
 WORKDIR /root
 
-RUN dnf install -y epel-release && \
-  dnf update -y && dnf install -y \
-  tigervnc-server \
-  && \
-  dnf group install -y xfce-desktop && \
-  dnf install -y xfce4-notifyd \
-  && \
-  dnf clean all -y
+RUN dnf install -y epel-release \
+  && dnf -y update-minimal --setopt=tsflags=nodocs \
+      --security --sec-severity=Important --sec-severity=Critical \
+  && dnf -y group install --setopt=tsflags=nodocs xfce-desktop \
+  && dnf -y install --setopt=tsflags=nodocs xfce4-notifyd tigervnc-server \
+  && dnf clean all -y
 
 COPY entrypoint.sh /
 COPY startxfce4.bash /usr/bin/

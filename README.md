@@ -1,7 +1,12 @@
 # centos-vnc container
 
-This is this source code repository for the headless centos xfce container
+This is this source code repository for the headless el8 xfce container
 [quay.io/l3o/centos-xfce-vnc](https://quay.io/l3o/centos-xfce-vnc).
+
+Currently the following el8 versions are supported:
+
+* CentOS Stream 8 (``stream8``)
+* Rocky Linux 8 (``rockylinux8``)
 
 ## volumes
 
