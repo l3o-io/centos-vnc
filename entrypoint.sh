@@ -16,6 +16,8 @@ fi
 if [ "$USER" != "root" ]; then
   HOME=/home/$USER
   useradd -u $USER_ID -g 0 -d $HOME $USER
+  # ensure correct ownership when using volumes in $HOME
+  chown $USER:root $HOME
 fi
 
 echo ":1=$USER" >> /etc/tigervnc/vncserver.users
