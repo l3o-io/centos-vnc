@@ -7,6 +7,8 @@ CPP = cpp
 
 ifeq ($(TARGET),rockylinux8)
 	DFILE := Containerfile.$(TARGET)
+else ifeq ($(TARGET),rockylinux9)
+	DFILE := Containerfile.$(TARGET)
 else
 	DFILE := Containerfile.stream8
 endif
@@ -19,6 +21,9 @@ Containerfile.stream8:
 Containerfile.rockylinux8:
 	$(CPP) -E Containerfile.rockylinux8.in $@
 
+Containerfile.rockylinux9:
+	$(CPP) -E Containerfile.rockylinux9.in $@
+
 Containerfile:
 	$(CPP) -E $(DFILE).in $(DFILE)
 
@@ -29,4 +34,4 @@ run:
 	$(PODMAN) container runlabel run $(CONTEXT)/$(IMAGE_NAME):$(TARGET)
 
 clean:
-	rm -f Containerfile.stream8 Containerfile.rockylinux8
+	rm -f Containerfile.stream8 Containerfile.rockylinux8 Containerfile.rockylinux9
