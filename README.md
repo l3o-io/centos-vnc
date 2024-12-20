@@ -6,6 +6,7 @@ This is this source code repository for the headless el8 and el9 xfce container
 Currently the following el8 and el9 versions are supported:
 
 * CentOS Stream 8 (``stream8``)
+* CentOS Stream 9 (``stream9``)
 * Rocky Linux 8 (``rockylinux8``)
 * Rocky Linux 9 (``rockylinux9``)
 
