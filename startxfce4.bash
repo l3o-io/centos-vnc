@@ -17,7 +17,9 @@ cp -af /usr/share/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml \
   $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
 
 # mark shortcuts on the desktop as trusted to execute
-DESKTOPFILES="$(ls ~/Desktop/*.desktop)" 2>/dev/null | true
+set +e
+DESKTOPFILES="$(ls ~/Desktop/*.desktop)" 2>/dev/null
+set -e
 if [ -n "$DESKTOPFILES" ]; then
   for f in $DESKTOPFILES; do
     gio set -t string "$f" metadata::xfce-exe-checksum "$(sha256sum "$f" | cut -d" " -f1)"
