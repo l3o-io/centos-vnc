@@ -1,5 +1,5 @@
 FROM docker.io/rockylinux/rockylinux:9
 
-RUN dnf -y install systemd && dnf clean all
+RUN dnf -y install systemd && dnf -y clean all
 #include "Containerfile.init.in"
 #include "Containerfile.in"
